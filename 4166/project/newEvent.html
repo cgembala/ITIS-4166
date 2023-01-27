@@ -1,42 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <title>Camp Fyre</title>
-        <link rel="shortcut icon" href="/4166/project/static/images/CampFyre-logos.jpeg">
-        <link href="/4166/project/styles/default.css" rel="stylesheet">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    </head>
-<div data-include="components/header.html"></div>
+
+<head>
+    <meta charset="utf-8">
+    <title>Camp Fyre</title>
+    <link rel="shortcut icon" href="/4166/project/static/images/CampFyre-logos.jpeg">
+    <link href="/4166/project/styles/default.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
 <body>
+    <div data-include="components/header.html"></div>
+
     <form action="#">
         <label for="first">Name:</label>
         <input class="labelback" type="text" id="first" name="first"><br>
         <label for="phone">Phone Number:</label>
-        <input class="labelback" type="tel" id="phone"  placeholder="123-456-7890" name="phone"><br>
+        <input class="labelback" type="tel" id="phone" placeholder="123-456-7890" name="phone"><br>
         <label for="eml">Email:</label>
-        <input class="labelback" type="email" id="eml" required=""  name="eml"><br>
+        <input class="labelback" type="email" id="eml" required="" name="eml"><br>
 
-        <label  for="event">Chose what kind of event you are interested in:</label> 
+        <label for="event">Chose what kind of event you are interested in:</label>
         <select name="event" id="event">
             <option class="dropdown" value="hiking">Hiking</option>
             <option class="dropdown" value="Camping">Camping</option>
         </select>
 
-        <p>Start Date: <input type="text" id="datepicker"></p>
-        <p>End Date: <input type="text" id="datepicker"></p>
-    
+        <p>Start Date: <input type="text" id="datestart"></p>
+        <p>End Date: <input type="text" id="dateend"></p>
+
         <p>Provide us with a short explaination of your desired event:</p>
         <textarea name="text" maxlength="250"></textarea><br>
 
         <p>Image: <input type="file" id="myFile" name="filename"></p>
-        
+
         <input class="buttons" type="submit" value="Submit Form">
         <input class="buttons" type="reset" value="Reset Form">
-        
-        
+
+
     </form>
     <div data-include="components/footer.html"></div>
-    <script src="/4166/project/scripts/dynamic_include.js"   ></script>
+    <script src="/4166/project/scripts/dynamic_include.js"></script>
 </body>
+
 </html>

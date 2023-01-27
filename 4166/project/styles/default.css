@@ -97,10 +97,27 @@ img {
   font-size: 1em;
   padding-left: 1em;
   margin-top: 5em;
-  margin
+  
 
 }
 form{
   margin-top: 2em;
   margin-left: 2em;;
+}
+.home{
+  margin-left: 2em;
+  margin-right: 2em;
+  margin-top: 3em;
+  text-align: center;
+
+}
+.events dt{
+  font-size: 1.5em;
+  font-weight: bold;
+}
+.events{
+  margin: 2em 2em 0 4em;
+}
+.events dd{
+  margin-bottom: .5em;
 }
