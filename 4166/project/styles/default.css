@@ -92,6 +92,9 @@ img {
 .image {
   flex-basis: 40%
 }
+.image h1{
+  margin-left: .5em;
+}
 
 .text {
   font-size: 1em;
@@ -120,4 +123,14 @@ form{
 }
 .events dd{
   margin-bottom: .5em;
+}
+.edit{
+  background-color: #4d364f;
+  color: white;
+  border: none;
+}
+.delete{
+  background-color: #f5756a;
+  color: white;
+  border: none;
 }
