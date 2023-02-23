@@ -2,8 +2,14 @@
   
     <div class = "content">
         <h4><%= event.title%></h4>
-        <small>Posted <%= event.createdAt%> by <%= event.author%></small>
+        <p>Date and time: <%= event.startdate%> to <%=event.enddate%></p>
+        <p>Location: <%= event.location%></p>
+        <p>Category: <%= event.category%></p>
         <div id = 'story'><%= event.content%></div>
+        <br>
+        <small>Posted <%= event.createdAt%> by <%= event.author%></small>
+        <br>
+        <img src="<%= event.image%>" alt="Image" style="width: 15%">
         <form>
             <button type="submit" formmethod="GET" formaction="/events/<%= event.id%>/edit">Edit</button>
             <button type="submit" formmethod="POST" formaction="/events/<%= event.id%>?_method=DELETE">Delete</button>

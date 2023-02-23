@@ -1,14 +1,81 @@
 <%- include('../partials/header.ejs')%>
-  
-    <div class = "content">
-        <%if(events.length) {%>
-            <p>Select a story to read</p>
-            <%events.forEach(event=>{%>
-                <a href="/events/<%= event.id %>"> <p><%= event.title%></p></a>
-            <% });
-        }else{%>
-            <P>There are no stories to display</P>
-        <%}%>
 
+    <div class="content">
+        <% if(events.length) { %>
+            <% if(Hiking.length) { %>
+                <div>
+                    <h2>Hiking</h2>
+                    <ul>
+                        <% Hiking.forEach(event=> { %>
+                            
+                                <li>
+                                    <a href="/events/<%= event.id %>">
+                                    <%= event.title %>
+                                    </a>
+                                </li>
+                            
+                            <% }) %>
+                    </ul>
+                </div>
+                <% } %>
+                    <% if(Camping.length) { %>
+                        <div>
+                            <h2>Camping</h2>
+                            <ul>
+                                <% Camping.forEach(event=> { %>
+                                    <a href="/events/<%= event.id %>">
+                                        <li>
+                                            <%= event.title %>
+                                        </li>
+                                    </a>
+                                    <% }) %>
+                            </ul>
+                        </div>
+                        <% } %>
+                            <% if(Biking.length) { %>
+                                <div>
+                                    <h2>Biking</h2>
+                                    <ul>
+                                        <% Biking.forEach(event=> { %>
+                                            <a href="/events/<%= event.id %>">
+                                                <li>
+                                                    <%= event.title %>
+                                                </li>
+                                            </a>
+                                            <% }) %>
+                                    </ul>
+                                </div>
+                                <% } %>
+                                    <% if(Backpacking.length) { %>
+                                        <div>
+                                            <h2>Backpacking</h2>
+                                            <ul>
+                                                <% Backpacking.forEach(event=> { %>
+                                                    <a href="/events/<%= event.id %>">
+                                                        <li>
+                                                            <%= event.title %>
+                                                        </li>
+                                                    </a>
+                                                    <% }) %>
+                                            </ul>
+                                        </div>
+                                        <% } %>
+                                            <% if(Other.length) { %>
+                                                <div>
+                                                    <h2>Other</h2>
+                                                    <ul>
+                                                        <% Other.forEach(event=> { %>
+                                                            <a href="/events/<%= event.id %>">
+                                                                <li>
+                                                                    <%= event.title %>
+                                                                </li>
+                                                            </a>
+                                                            <% }) %>
+                                                    </ul>
+                                                </div>
+                                                <% } %>
+                                                    <% } else { %>
+                                                        <h2>There are no events to display.</h2>
+                                                        <% } %>
     </div>
     <%- include('../partials/footer.ejs')%>

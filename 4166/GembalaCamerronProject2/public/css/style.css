@@ -42,7 +42,7 @@ a {
   float: right;
 }
 
-.site-navigation ul, li {
+.site-navigation ul, .site-navigation li {
   margin: 0; 
   padding: 0;
 
@@ -69,7 +69,7 @@ footer a {
   display: inline-block;
   margin: 0 10px 0 15px;
 }
-footer ul,li{
+footer ul,footer li{
   display: inline-block;
 
 }
@@ -133,4 +133,31 @@ form{
   background-color: #f5756a;
   color: white;
   border: none;
+}
+.content {
+  display: block;
+  padding-left: 1rem;
+  padding-top: 1rem;
+}
+.new-form {
+  display: grid;
+  grid-template-columns: 100px 250px;
+  row-gap: 1.5rem;
+}
+
+.new-form input[type="submit"] {
+  width: 70px;
+  padding: 0.2em 0;
+  grid-column: 2/3;
+  justify-self: end;
+}
+
+.content ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.content li {
+  padding: 5px 5px;
+  /* border: 1px solid black; */
 }

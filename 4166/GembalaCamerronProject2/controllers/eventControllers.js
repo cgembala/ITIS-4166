@@ -1,9 +1,14 @@
 const model = require('../models/event')
-exports.index = (req, res)=>{
-    //res.send('send all stories');
-    let events = model.find();
-    res.render('./event/index', {events});
-};
+exports.index = (req, res) => {
+    res.render('./event/index' ,{
+      events: model.find(),
+      Hiking: model.findByCategory("Hiking"),
+      Camping: model.findByCategory("Camping"),
+      Biking: model.findByCategory("Mountain Biking"),
+      Backpacking: model.findByCategory("Backpacking"),
+      Other: model.findByCategory("Other"),
+    });
+  };
 
 exports.new = (req, res)=>{
     res.render('./event/new');
@@ -12,8 +17,11 @@ exports.new = (req, res)=>{
 exports.create = (req, res)=>{
     //res.send('Created a new story');
     let event = req.body;
+    event.image = "/images/" + req.file.filename;
     model.save(event);
-    res.redirect('/events');
+    let image = req.file.filename;
+    console.log("image: " + image);
+    res.redirect('/events')
 };
 
 exports.show = (req, res, next)=>{
@@ -45,7 +53,9 @@ exports.edit = (req, res, next)=>{
 exports.update = (req, res, next)=>{
     let event = req.body;
     let id = req.params.id;
-
+    if (req.file){
+    event.image = "/images/" + req.file.filename;
+    }
     if (model.updateById(id, event)) {
         res.redirect('/events/'+id);
     } else {

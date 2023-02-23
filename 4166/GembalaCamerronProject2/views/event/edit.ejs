@@ -1,12 +1,33 @@
 <%- include('../partials/header.ejs')%>
 <div class = "content">
     
-    <form method = "POST" action = "/events/<%= event.id%>?_method=PUT" class="new-form">
-        <label for="title" >Title</label>
-        <input type="text" id="title" name="title" value = "<%= event.title%>">
+    <form method = "POST" action = "/events/<%= event.id%>?_method=PUT" class="new-form" enctype="multipart/form-data">
+        <label for='title'> Title </label>
+        <input type="text" id="title" name="title" value='<%= event.title%>'>
         
-        <label for="content">Content</label>
+        
+        <label for='location'> Location </label>
+        <input type="text" id="location" name="location" value='<%= event.location%>'>
+
+        <label for="category">Event</label>
+        <select name="category" id="category" value='<%= event.category%>'>
+            <option class="dropdown" value="Hiking">Hiking</option>
+            <option class="dropdown" value="Camping">Camping</option>
+            <option class="dropdown" value="Mountain Biking">Mountain Biking</option>
+            <option class="dropdown" value="Backpacking">Backpacking</option>
+            <option class="dropdown" value="Other">Other</option>
+        </select>
+        <label for="datestart">Start Date</label>
+        <input type="datetime-local" id="date" value='<%= event.startdate%>' name="startdate">
+
+        <label for="dateend">End Date</label>
+        <input type="datetime-local" id="date" value='<%= event.enddate%>' name="enddate">
+
+        <label for="content">Description</label>
         <textarea rows="5" id="content" name="content" class = "fixed-width"><%= event.content%></textarea>
+
+        <label for="picture">Image</label>
+        <input type="file" id="myFile" name="image">
         
         <input type="submit" value="Submit">   
       
