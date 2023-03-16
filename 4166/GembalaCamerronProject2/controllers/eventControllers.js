@@ -21,7 +21,7 @@ exports.create = (req, res)=>{
     model.save(event);
     let image = req.file.filename;
     console.log("image: " + image);
-    res.redirect('/events')
+    res.redirect('/events/' + event.id)
 };
 
 exports.show = (req, res, next)=>{

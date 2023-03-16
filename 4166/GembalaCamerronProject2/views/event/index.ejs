@@ -7,13 +7,13 @@
                     <h2>Hiking</h2>
                     <ul>
                         <% Hiking.forEach(event=> { %>
-                            
-                                <li>
-                                    <a href="/events/<%= event.id %>">
+
+                            <li>
+                                <a href="/events/<%= event.id %>">
                                     <%= event.title %>
-                                    </a>
-                                </li>
-                            
+                                </a>
+                            </li>
+
                             <% }) %>
                     </ul>
                 </div>
@@ -23,11 +23,13 @@
                             <h2>Camping</h2>
                             <ul>
                                 <% Camping.forEach(event=> { %>
-                                    <a href="/events/<%= event.id %>">
-                                        <li>
+
+                                    <li>
+                                        <a href="/events/<%= event.id %>">
                                             <%= event.title %>
-                                        </li>
-                                    </a>
+                                        </a>
+                                    </li>
+
                                     <% }) %>
                             </ul>
                         </div>
@@ -37,11 +39,13 @@
                                     <h2>Biking</h2>
                                     <ul>
                                         <% Biking.forEach(event=> { %>
-                                            <a href="/events/<%= event.id %>">
-                                                <li>
+
+                                            <li>
+                                                <a href="/events/<%= event.id %>">
                                                     <%= event.title %>
-                                                </li>
-                                            </a>
+                                                </a>
+                                            </li>
+
                                             <% }) %>
                                     </ul>
                                 </div>
@@ -51,11 +55,13 @@
                                             <h2>Backpacking</h2>
                                             <ul>
                                                 <% Backpacking.forEach(event=> { %>
-                                                    <a href="/events/<%= event.id %>">
-                                                        <li>
+
+                                                    <li>
+                                                        <a href="/events/<%= event.id %>">
                                                             <%= event.title %>
-                                                        </li>
-                                                    </a>
+                                                        </a>
+                                                    </li>
+
                                                     <% }) %>
                                             </ul>
                                         </div>
@@ -65,11 +71,13 @@
                                                     <h2>Other</h2>
                                                     <ul>
                                                         <% Other.forEach(event=> { %>
-                                                            <a href="/events/<%= event.id %>">
-                                                                <li>
+
+                                                            <li>
+                                                                <a href="/events/<%= event.id %>">
                                                                     <%= event.title %>
-                                                                </li>
-                                                            </a>
+                                                                </a>
+                                                            </li>
+
                                                             <% }) %>
                                                     </ul>
                                                 </div>
