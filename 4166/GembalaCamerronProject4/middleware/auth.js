@@ -1,4 +1,4 @@
-const Story = require('../models/event');
+const Event = require('../models/event');
 
 //check if user is a guest
 exports.isGuest = (req, res, next)=>{
@@ -23,10 +23,10 @@ exports.isLoggedIn = (req, res, next)=>{
 //check is user is author
 exports.isAuthor  = (req, res, next)=>{
     let id = req.params.id
-    Story.findById(id)
-    .then(story=>{
-        if(story){
-            if(story.author == req.session.user){
+    Event.findById(id)
+    .then(event=>{
+        if(event){
+            if(event.author == req.session.user){
                 return next();
             } else {
                 let err = new Error('Unauthorized to access the resource');
