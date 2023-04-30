@@ -10,11 +10,22 @@
         <small>Posted <%= event.createdAt%> by <%= event.author.firstName + ' ' + event.author.lastName%></small>
         <br>
         <img src="<%= event.image%>" alt="Image" style="width: 15%">
-        <%if(user == event.author._id) {%>
+        <% if(user) {%>
+        <%if(user.id == event.author._id) {%>
         <form>
             <button type="submit" formmethod="GET" formaction="/events/<%= event._id%>/edit">Edit</button>
             <button type="submit" formmethod="POST" formaction="/events/<%= event._id%>?_method=DELETE">Delete</button>
         </form>
-        <%}%>
+        <%} else {%>
+
+            <h5> <%=count%> People are going</h5>
+
+            <form action="/events/<%= event.id %>/rsvp", method="POST">
+                <input type="submit"  value="yes" class="btn btn-lg btn-success" title="RSVP Yes" name="rsvp">
+                <input type="submit"  value="no" class="btn btn-lg btn-danger" title="RSVP No" name="rsvp">  
+                <input type="submit"  value="maybe" class="btn btn-lg btn-info" title="RSVP Maybe" name="rsvp">  
+            </form>
+        <%}}%> 
+        
     </div>
     <%- include('../partials/footer.ejs')%>

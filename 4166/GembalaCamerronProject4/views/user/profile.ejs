@@ -10,5 +10,15 @@
     } else {%>
         <p>You have not created any events.</p>
     <%}%>
+
+    <%if(rsvps.length) {%>
+        <p>You have rsvp-ed the following events</p>
+        <%rsvps.forEach(rsvp => {%>
+            <a href="/events/<%=rsvp.event._id%>"><p><%=rsvp.event.title%></p></a>
+            <p>your response: <%= rsvp.rsvp %></p>
+        <%});
+    } else {%>
+        <p>You have not rsvp-ed any events.</p>
+    <%}%>
     </div>
     <%- include('../partials/footer.ejs')%>

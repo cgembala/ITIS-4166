@@ -1,5 +1,6 @@
 const model = require('../models/user');
 const Event = require('../models/event');
+const rsvpModel = require('../models/rsvp');
 
 exports.new = (req, res)=>{
     return res.render('./user/new');
@@ -34,14 +35,13 @@ exports.login = (req, res, next)=>{
     model.findOne({ email: email })
     .then(user => {
         if (!user) {
-            console.log('wrong email address');
             req.flash('error', 'wrong email address');  
             res.redirect('/users/login');
             } else {
             user.comparePassword(password)
             .then(result=>{
                 if(result) {
-                    req.session.user = user._id;
+                    req.session.user = {id: user._id, name: user.firstName};
                     req.flash('success', 'You have successfully logged in');
                     res.redirect('/users/profile');
             } else {
@@ -55,11 +55,11 @@ exports.login = (req, res, next)=>{
 };
 
 exports.profile = (req, res, next)=>{
-    let id = req.session.user;
-    Promise.all([model.findById(id), Event.find({author: id})])
+    let id = req.session.user.id;
+    Promise.all([model.findById(id), Event.find({author: id}), rsvpModel.find({user: id}).populate('event')])
     .then(results=>{
-        const [user, events] = results;
-        res.render('./user/profile', {user, events});
+        const [user, events, rsvps] = results;
+        res.render('./user/profile', {user, events, rsvps});
     })
     .catch(err=>next(err));
 };

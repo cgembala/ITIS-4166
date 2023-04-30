@@ -26,7 +26,7 @@ exports.isAuthor  = (req, res, next)=>{
     Event.findById(id)
     .then(event=>{
         if(event){
-            if(event.author == req.session.user){
+            if(event.author == req.session.user.id){
                 return next();
             } else {
                 let err = new Error('Unauthorized to access the resource');
@@ -38,3 +38,19 @@ exports.isAuthor  = (req, res, next)=>{
     .catch(err=>next(err));
 };
 
+exports.notAuthor  = (req, res, next)=>{
+    let id = req.params.id
+    Event.findById(id)
+    .then(event=>{
+        if(event){
+            if(event.author != req.session.user.id){
+                return next();
+            } else {
+                let err = new Error('Unauthorized to access the resource');
+                err.status = 401;
+                return next(err);
+            }
+        }
+    })
+    .catch(err=>next(err));
+};
