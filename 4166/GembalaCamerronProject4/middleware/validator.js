@@ -13,7 +13,12 @@ exports.validateId = (req, res, next) => {
 };
 
 exports.validateEvent = [body('title', 'Title cannot be empty').notEmpty().trim().escape(),
-body('content', 'Content must be at least 10 characters').trim().escape().isLength({min: 10})];
+body('content', 'Content must be at least 10 characters').trim().escape().isLength({min: 10})],
+body('location', 'Location cannot be empty').notEmpty().trim().escape(), 
+body('startdate', 'Start date must be after today').isISO8601().isAfter(),
+body('enddate', 'End date invalid').isISO8601().custom((enddate, {req})=>{
+    return Date.parse(enddate) > Date.parse(req.body.startdate);
+})
 
 exports.validateSignUp = [body('firstName', 'First name cannot be empty').notEmpty().trim().escape(),
 body('lastName', 'Last name cannot be empty').notEmpty().trim().escape(),
